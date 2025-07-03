@@ -44,11 +44,16 @@
   flex-wrap: wrap;
 }
 
-.search {
+.filter {
   padding: 10px;
 }
 
 .res-logo {
   width: 100%;
   /* padding: 5px; */
+}
+
+.filter-btn {
+  margin: 10px;
+  cursor: pointer;
 }
