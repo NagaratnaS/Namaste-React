@@ -1,19 +1,22 @@
 const styleCard = { backgroundColor: "#f0f0f0" };
 const RestaurantCard = ({ resData }) => {
-  console.log(resData);
+  // console.log(resData);
   const {
     name,
-    servesCuisine,
-    aggregateRating: { ratingValue, reviewCount },
-    image,
+    cuisines,
+    avgRating,
+    costForTwo,
+    cloudinaryImageId,
+    sla: { deliveryTime },
   } = resData.item;
   return (
     <div className="restaurant-card" style={styleCard}>
-      <img className="res-logo" alt="res-logo" src={image}></img>
+      <img className="res-logo" alt="res-logo" src={cloudinaryImageId}></img>
       <h3>{name}</h3>
-      <h4>{servesCuisine}</h4>
-      <h4>{ratingValue}</h4>
-      <h4>{reviewCount}</h4>
+      <h4>{cuisines}</h4>
+      <h4>{avgRating}</h4>
+      <h4>{costForTwo}</h4>
+      <h4>{deliveryTime} + " mins"</h4>
     </div>
   );
 };
