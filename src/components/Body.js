@@ -1,11 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import RestaurantCard from "./RestaurantCard";
-import restaurantList from "../utils/mockData";
 import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [restaurants, setRestaurants] = useState([]);
+  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
@@ -18,6 +18,10 @@ const Body = () => {
     );
     const json = await data.json();
     setRestaurants(
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants || []
+    );
+    setFilteredRestaurants(
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants || []
     );
@@ -39,7 +43,7 @@ const Body = () => {
             const filteredRestaurants = restaurants.filter((ele) =>
               ele.info.name.toLowerCase().includes(searchText.toLowerCase())
             );
-            setRestaurants(filteredRestaurants);
+            setFilteredRestaurants(filteredRestaurants);
           }}
         >
           Search
@@ -50,14 +54,14 @@ const Body = () => {
             const filteredRestaurants = restaurants.filter(
               (rt) => rt.info.avgRating > 4.5
             );
-            setRestaurants(filteredRestaurants);
+            setFilteredRestaurants(filteredRestaurants);
           }}
         >
           Top-Rated Restaurants
         </button>
       </div>
       <div className="res-container">
-        {restaurants.map((restaurant) => (
+        {filteredRestaurants.map((restaurant) => (
           <RestaurantCard key={restaurant.info.id} resData={restaurant} />
         ))}
       </div>
