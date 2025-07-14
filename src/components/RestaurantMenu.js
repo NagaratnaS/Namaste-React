@@ -1,23 +1,10 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { RESTAURANT_LIST_URL } from "../utils/constants";
+import useRestaurantmenu from "../utils/useRestaurantmenu"; // Custom hook to fetch restaurant menu
 import Shimmer from "./Shimmer"; // Assuming you have a Shimmer component for loading state
 
 const RestaurantMenu = () => {
-  const [restaurantInfo, setRestaurantInfo] = useState(null);
   const { id } = useParams(); // This is to get the restaurant ID from the URL, but it's not used in this example
-  const fetchData = async () => {
-    const data = await fetch(
-      `${RESTAURANT_LIST_URL}${id}&catalog_qa=undefined`
-    );
-    const json = await data.json();
-    setRestaurantInfo(json.data);
-    console.log(json.data);
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const restaurantInfo = useRestaurantmenu(id);
 
   if (restaurantInfo === null) {
     return <Shimmer />;
