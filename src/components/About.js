@@ -1,3 +1,5 @@
+import User from "./User";
+
 const About = () => {
   return (
     <div>
@@ -6,6 +8,7 @@ const About = () => {
         We are a company dedicated to providing the best services to our
         customers.
       </p>
+      <User />
     </div>
   );
 };

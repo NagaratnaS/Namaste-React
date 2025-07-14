@@ -5,10 +5,10 @@ import Shimmer from "./Shimmer"; // Assuming you have a Shimmer component for lo
 
 const RestaurantMenu = () => {
   const [restaurantInfo, setRestaurantInfo] = useState(null);
-  const { resId } = useParams(); // This is to get the restaurant ID from the URL, but it's not used in this example
+  const { id } = useParams(); // This is to get the restaurant ID from the URL, but it's not used in this example
   const fetchData = async () => {
     const data = await fetch(
-      `${RESTAURANT_LIST_URL}${resId}&catalog_qa=undefined`
+      `${RESTAURANT_LIST_URL}${id}&catalog_qa=undefined`
     );
     const json = await data.json();
     setRestaurantInfo(json.data);
