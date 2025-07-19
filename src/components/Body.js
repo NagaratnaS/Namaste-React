@@ -35,7 +35,7 @@ const Body = () => {
   if (!isOnline) {
     return <h1>🔴 Offline, Please check your internet connection</h1>;
   }
-  console.log("Filtered Restaurants:", filteredRestaurants);
+
   return restaurants.length === 0 ? (
     <Shimmer />
   ) : (
