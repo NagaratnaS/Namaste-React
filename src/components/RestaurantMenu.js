@@ -3,7 +3,7 @@ import useRestaurantmenu from "../utils/useRestaurantmenu"; // Custom hook to fe
 import Shimmer from "./Shimmer"; // Assuming you have a Shimmer component for loading state
 
 const RestaurantMenu = () => {
-  const { id } = useParams(); // This is to get the restaurant ID from the URL, but it's not used in this example
+  const { id } = useParams(); // This is to get the restaurant ID from the URL
   const restaurantInfo = useRestaurantmenu(id);
 
   if (restaurantInfo === null) {
