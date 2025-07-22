@@ -9,6 +9,7 @@ const RestaurantCard = ({ resData }) => {
     cloudinaryImageId,
     sla: { deliveryTime },
   } = resData.info;
+
   return (
     <div className="restaurant-card" style={styleCard}>
       <img
