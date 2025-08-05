@@ -9,11 +9,11 @@ const Header = () => {
   const isOnline = useOnlineStatus();
 
   return (
-    <div className="header">
-      <div className="logo">
-        <img className="logo-container" src={LOGO_URL} />
-      </div>
-      <div className="nav-items">
+    <div className="">
+      {/* <div className="w-10 m-5 p-8">
+        <img className="w-xs" src={LOGO_URL} />
+      </div> */}
+      <div className="">
         <ul>
           <li>{isOnline ? "🟢 Online" : "🔴 Offline"}</li>
           <li>

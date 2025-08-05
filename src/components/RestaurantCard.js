@@ -1,5 +1,5 @@
 import { CDN_URL } from "../utils/constants";
-const styleCard = { backgroundColor: "#f0f0f0" };
+// const styleCard = { backgroundColor: "#f0f0f0" };
 const RestaurantCard = ({ resData }) => {
   const {
     name,
@@ -11,9 +11,9 @@ const RestaurantCard = ({ resData }) => {
   } = resData.info;
 
   return (
-    <div className="restaurant-card" style={styleCard}>
+    <div className="w-xs">
       <img
-        className="res-logo"
+        className="w-xs"
         alt="res-logo"
         src={`${CDN_URL}${cloudinaryImageId}`}
       ></img>

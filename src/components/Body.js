@@ -69,7 +69,7 @@ const Body = () => {
           Top-Rated Restaurants
         </button>
       </div>
-      <div className="res-container">
+      <div className="grid grid-cols-3 grid-rows-3 gap-4">
         {filteredRestaurants.map((restaurant) => (
           <Link
             to={`restaurant/${restaurant.info.id}`}
