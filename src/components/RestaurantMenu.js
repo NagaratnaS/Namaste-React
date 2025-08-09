@@ -1,9 +1,12 @@
 import { useParams } from "react-router-dom";
+import { useState } from "react";
 import useRestaurantmenu from "../utils/useRestaurantmenu"; // Custom hook to fetch restaurant menu
 import Shimmer from "./Shimmer";
 import RestaurantCategory from "./RestaurantCategory"; // Assuming you have a Shimmer component for loading state
 
 const RestaurantMenu = () => {
+  const [showIndex, setShowIndex] = useState(null);
+
   const { id } = useParams(); // This is to get the restaurant ID from the URL
   const restaurantInfo = useRestaurantmenu(id);
 
@@ -31,10 +34,12 @@ const RestaurantMenu = () => {
         </li>
         ))
       </ul>
-      {category.map((ele) => (
+      {category.map((ele, index) => (
         <RestaurantCategory
           data={ele?.card?.card}
           key={ele?.card?.card?.title}
+          showItems={showIndex === index ? true : false}
+          receiveShowItems={() => setShowIndex(index)} // Function to toggle visibility of items
         />
       ))}
     </div>
