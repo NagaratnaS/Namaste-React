@@ -19,7 +19,7 @@ const AppLayout = () => {
     setUserName("Nagaratna");
   }, []);
   return (
-    <UserContext.Provider value={{ loggedInUser: userName }}>
+    <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
       <div className="app">
         <Header />
         <Outlet />

@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState, useEffect } from "react";
 import RestaurantCard, { withLabelPromoted } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [restaurants, setRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
   const isOnline = useOnlineStatus();
+  const { loggedInUser, setUserName } = useContext(UserContext);
 
   const PromotedRestaurantCard = withLabelPromoted(RestaurantCard);
 
@@ -68,6 +70,12 @@ const Body = () => {
         >
           Top-Rated Restaurants
         </button>
+        <input
+          type="text"
+          className="search-box"
+          value={loggedInUser}
+          onChange={(e) => setUserName(e.target.value)}
+        ></input>
       </div>
       <div className="grid grid-cols-3 grid-rows-3 gap-4">
         {filteredRestaurants.map((restaurant) => (
