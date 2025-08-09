@@ -38,7 +38,7 @@ const RestaurantMenu = () => {
         <RestaurantCategory
           data={ele?.card?.card}
           key={ele?.card?.card?.title}
-          showItems={showIndex === index ? true : false}
+          showItems={showIndex === index}
           receiveShowItems={() => setShowIndex(index)} // Function to toggle visibility of items
         />
       ))}

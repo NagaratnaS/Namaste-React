@@ -1,8 +1,11 @@
 import ItemList from "./ItemList";
+import { useState } from "react";
 
 const RestaurantCategory = ({ data, showItems, receiveShowItems }) => {
+  const [isAccordionCollapse, setIsAccordionCollapse] = useState(false);
   const handleClick = () => {
     receiveShowItems();
+    setIsAccordionCollapse(!isAccordionCollapse);
   };
   return (
     <div
@@ -17,7 +20,9 @@ const RestaurantCategory = ({ data, showItems, receiveShowItems }) => {
           ⬇️
         </span>
       </div>
-      {showItems ? <ItemList items={data?.itemCards} /> : null}
+      {showItems && isAccordionCollapse ? (
+        <ItemList items={data?.itemCards} />
+      ) : null}
     </div>
   );
 };
