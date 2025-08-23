@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "I am learning Namaste React by Akshay Saini",
   "default": "App.js",
+  "type": "module",
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html",
-    "test": "jest"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
   "devDependencies": {
     "@babel/core": "^7.28.3",
     "@babel/preset-env": "^7.28.3",
+    "@babel/preset-react": "^7.27.1",
     "@tailwindcss/postcss": "^4.1.11",
     "@testing-library/react": "^16.3.0",
     "@types/react": "^18.3.23",
