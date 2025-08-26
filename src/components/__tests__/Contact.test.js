@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
 import Contact from "../Contact";
-import "@testing-library/react";
+import "@testing-library/jest-dom";
 
 describe("Contact Us Page test case", () => {
   test("Should load Contact Us Component", () => {

@@ -9,7 +9,7 @@ const RestaurantCard = ({ resData }) => {
     cloudinaryImageId,
     sla: { deliveryTime },
   } = resData.info;
-
+  console.log("%%%%%%%%%resData%%%%%%%%%%%%", resData.info);
   return (
     <div className="w-xs">
       <img
