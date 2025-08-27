@@ -16,6 +16,7 @@ const ItemList = ({ items }) => {
 
         return (
           <div
+            data-testid="foodItems"
             key={id}
             className="flex gap-4 p-4 rounded-xl border border-gray-300/40 shadow-md hover:shadow-lg transition-shadow bg-white"
           >
